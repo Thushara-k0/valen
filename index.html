@@ -2,168 +2,149 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For You 💖</title>
+<title>For You ❤️</title>
 
 <style>
   body {
     margin: 0;
-    height: 100vh;
-    background: black;
     font-family: 'Arial', sans-serif;
     overflow: hidden;
+    background: #0b0b0b;
+    color: white;
+  }
+
+  /* Countdown screen */
+  #intro {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    text-align: center;
-  }
-
-  /* Fairy lights */
-  .light {
-    position: fixed;
-    top: 0;
-    font-size: 22px;
-    animation: twinkle 2s infinite alternate;
-  }
-
-  @keyframes twinkle {
-    from { opacity: 0.3; }
-    to { opacity: 1; }
-  }
-
-  /* Countdown */
-  #countdown {
     font-size: 4em;
-    z-index: 2;
     animation: pulse 1s infinite;
   }
 
   @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
   }
 
-  /* Hidden content */
+  /* Main content */
   #main {
     display: none;
-    flex-direction: column;
-    align-items: center;
-    background: linear-gradient(135deg, #ffe0f0, #fff5fa);
-    color: #b3005e;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffd6e8, #fff1f7);
+    color: #6b003f;
+    text-align: center;
+    padding: 40px 20px;
   }
 
   h1 {
-    font-size: 3em;
-    animation: fadeIn 2s forwards;
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    animation: fadeUp 1.5s forwards;
   }
 
   p {
-    font-size: 1.4em;
-    margin: 10px 20px;
+    font-size: 1.3em;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    animation: fadeUp 2s forwards;
   }
 
-  @keyframes fadeIn {
+  @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Teddy */
-  .teddy {
-    font-size: 90px;
-    animation: bounce 2s infinite;
-    margin: 20px;
+  /* Photo gallery */
+  .gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
   }
 
-  @keyframes bounce {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-25px); }
+  .gallery img {
+    width: 220px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    animation: float 4s ease-in-out infinite;
   }
 
-  /* Floating hearts */
+  .gallery img:nth-child(2) {
+    animation-delay: 1s;
+  }
+
+  .gallery img:nth-child(3) {
+    animation-delay: 2s;
+  }
+
+  @keyframes float {
+    50% { transform: translateY(-15px); }
+  }
+
+  /* Hearts */
   .heart {
     position: fixed;
     bottom: -20px;
-    font-size: 24px;
-    animation: floatUp 8s linear infinite;
-    opacity: 0.8;
+    font-size: 22px;
+    animation: rise 8s linear infinite;
+    opacity: 0.6;
   }
 
-  @keyframes floatUp {
+  @keyframes rise {
     from { transform: translateY(0); opacity: 0; }
     10% { opacity: 1; }
     to { transform: translateY(-110vh); opacity: 0; }
-  }
-
-  button {
-    margin-top: 20px;
-    background: hotpink;
-    border: none;
-    padding: 14px 28px;
-    font-size: 18px;
-    border-radius: 30px;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
   }
 </style>
 </head>
 
 <body>
 
-<!-- Fairy lights -->
-<div class="light" style="left:5%">✨</div>
-<div class="light" style="left:15%">💡</div>
-<div class="light" style="left:25%">✨</div>
-<div class="light" style="left:35%">💡</div>
-<div class="light" style="left:45%">✨</div>
-<div class="light" style="left:55%">💡</div>
-<div class="light" style="left:65%">✨</div>
-<div class="light" style="left:75%">💡</div>
-<div class="light" style="left:85%">✨</div>
-<div class="light" style="left:95%">💡</div>
+<!-- Intro countdown -->
+<div id="intro">5</div>
 
-<!-- Countdown -->
-<div id="countdown">5</div>
-
-<!-- Main Content -->
+<!-- Main content -->
 <div id="main">
-  <h1>Hi My Love 💖</h1>
-  <div class="teddy">🧸</div>
+  <h1>Hi My Love ❤️</h1>
+
   <p>
-    I made this just for you.<br>
-    You make my world brighter,<br>
-    warmer, and happier every day 💕
+    Every moment with you is my favorite.<br>
+    This is just a tiny piece of how much you mean to me.
   </p>
-  <button onclick="alert('I love you 💖')">Tap me 🥹</button>
+
+  <div class="gallery">
+    <img src="us1.jpg" alt="Us together">
+    <img src="us2.jpg" alt="Our memory">
+    <img src="us3.jpg" alt="My favorite person">
+  </div>
 </div>
 
 <script>
-  let time = 5;
-  const countdown = document.getElementById("countdown");
+  // Countdown
+  let count = 5;
+  const intro = document.getElementById("intro");
   const main = document.getElementById("main");
 
   const timer = setInterval(() => {
-    time--;
-    countdown.textContent = time;
+    count--;
+    intro.textContent = count;
 
-    if (time === 0) {
+    if (count === 0) {
       clearInterval(timer);
-      countdown.style.display = "none";
-      document.body.style.background = "pink";
-      main.style.display = "flex";
+      intro.style.display = "none";
+      main.style.display = "block";
 
-      // Create floating hearts
-      for (let i = 0; i < 20; i++) {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.textContent = ["💖","💕","💗","💓","💘"][Math.floor(Math.random()*5)];
-        heart.style.left = Math.random() * 100 + "%";
-        heart.style.animationDuration = (Math.random()*4 + 6) + "s";
-        document.body.appendChild(heart);
+      // Hearts
+      for (let i = 0; i < 18; i++) {
+        const h = document.createElement("div");
+        h.className = "heart";
+        h.textContent = ["❤️","💖","💕","💘"][Math.floor(Math.random()*4)];
+        h.style.left = Math.random() * 100 + "%";
+        h.style.animationDuration = (Math.random()*4 + 6) + "s";
+        document.body.appendChild(h);
       }
     }
   }, 1000);
