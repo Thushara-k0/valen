@@ -1,139 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For My Valentine 💖</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ffd6e8, #ffeef5);
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      overflow: hidden;
-    }
+<meta charset="UTF-8">
+<title>For You 💖</title>
 
-    h1 {
-      margin-top: 80px;
-      font-size: 2.8em;
-      color: #d63384;
-    }
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: black;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+  }
 
-    p {
-      font-size: 1.3em;
-      color: #6b003f;
-    }
+  /* Fairy lights */
+  .light {
+    position: fixed;
+    top: 0;
+    font-size: 22px;
+    animation: twinkle 2s infinite alternate;
+  }
 
-    /* Fade in text */
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 3s ease forwards;
-    }
+  @keyframes twinkle {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+  }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
+  /* Countdown */
+  #countdown {
+    font-size: 4em;
+    z-index: 2;
+    animation: pulse 1s infinite;
+  }
 
-    /* Beating heart */
-    .heart {
-      font-size: 90px;
-      animation: beat 1s infinite;
-      margin: 20px 0;
-    }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
 
-    @keyframes beat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.25); }
-    }
+  /* Hidden content */
+  #main {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #ffe0f0, #fff5fa);
+    color: #b3005e;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
 
-    /* Button */
-    button {
-      background: hotpink;
-      border: none;
-      padding: 14px 26px;
-      font-size: 18px;
-      border-radius: 30px;
-      color: white;
-      cursor: pointer;
-      margin-top: 20px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
+  h1 {
+    font-size: 3em;
+    animation: fadeIn 2s forwards;
+  }
 
-    button:hover {
-      background: #ff4fa3;
-    }
+  p {
+    font-size: 1.4em;
+    margin: 10px 20px;
+  }
 
-    #surprise {
-      margin-top: 20px;
-      font-size: 1.4em;
-      color: #b3005e;
-    }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-    /* Floating hearts */
-    .hearts span {
-      position: fixed;
-      bottom: -20px;
-      font-size: 24px;
-      animation: floatUp 10s linear infinite;
-      opacity: 0.7;
-    }
+  /* Teddy */
+  .teddy {
+    font-size: 90px;
+    animation: bounce 2s infinite;
+    margin: 20px;
+  }
 
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-      }
-      10% { opacity: 1; }
-      100% {
-        transform: translateY(-110vh) translateX(50px);
-        opacity: 0;
-      }
-    }
-  </style>
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-25px); }
+  }
+
+  /* Floating hearts */
+  .heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 24px;
+    animation: floatUp 8s linear infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(0); opacity: 0; }
+    10% { opacity: 1; }
+    to { transform: translateY(-110vh); opacity: 0; }
+  }
+
+  button {
+    margin-top: 20px;
+    background: hotpink;
+    border: none;
+    padding: 14px 28px;
+    font-size: 18px;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  }
+</style>
 </head>
 
 <body>
 
-  <h1 class="fade-in">Happy Valentine’s Day 💕</h1>
+<!-- Fairy lights -->
+<div class="light" style="left:5%">✨</div>
+<div class="light" style="left:15%">💡</div>
+<div class="light" style="left:25%">✨</div>
+<div class="light" style="left:35%">💡</div>
+<div class="light" style="left:45%">✨</div>
+<div class="light" style="left:55%">💡</div>
+<div class="light" style="left:65%">✨</div>
+<div class="light" style="left:75%">💡</div>
+<div class="light" style="left:85%">✨</div>
+<div class="light" style="left:95%">💡</div>
 
-  <div class="heart">❤️</div>
+<!-- Countdown -->
+<div id="countdown">5</div>
 
-  <p class="fade-in">
+<!-- Main Content -->
+<div id="main">
+  <h1>Hi My Love 💖</h1>
+  <div class="teddy">🧸</div>
+  <p>
     I made this just for you.<br>
-    You make my days brighter and my heart happier 💖
+    You make my world brighter,<br>
+    warmer, and happier every day 💕
   </p>
+  <button onclick="alert('I love you 💖')">Tap me 🥹</button>
+</div>
 
-  <button onclick="showLove()">Click me 💌</button>
+<script>
+  let time = 5;
+  const countdown = document.getElementById("countdown");
+  const main = document.getElementById("main");
 
-  <div id="surprise"></div>
+  const timer = setInterval(() => {
+    time--;
+    countdown.textContent = time;
 
-  <!-- Floating hearts -->
-  <div class="hearts">
-    <span style="left: 10%;">💖</span>
-    <span style="left: 25%;">💕</span>
-    <span style="left: 40%;">💗</span>
-    <span style="left: 55%;">💓</span>
-    <span style="left: 70%;">💘</span>
-    <span style="left: 85%;">❤️</span>
-  </div>
+    if (time === 0) {
+      clearInterval(timer);
+      countdown.style.display = "none";
+      document.body.style.background = "pink";
+      main.style.display = "flex";
 
-  <script>
-    function showLove() {
-      document.getElementById("surprise").innerText =
-        "I choose you. Today. Tomorrow. Always. 💞";
+      // Create floating hearts
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = ["💖","💕","💗","💓","💘"][Math.floor(Math.random()*5)];
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.animationDuration = (Math.random()*4 + 6) + "s";
+        document.body.appendChild(heart);
+      }
     }
-
-    // Randomize heart animation timing
-    const hearts = document.querySelectorAll('.hearts span');
-    hearts.forEach(heart => {
-      heart.style.animationDuration = 
-        Math.random() * 5 + 7 + "s";
-      heart.style.fontSize =
-        Math.random() * 20 + 20 + "px";
-    });
-  </script>
+  }, 1000);
+</script>
 
 </body>
 </html>
